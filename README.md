@@ -1,5 +1,5 @@
 # Teste de API
-Collections com todas as requests do Teste de API
+### Este projeto é referente a como executar a Collection: Teste de API.postman_collection.json no Postman. 
 
 Primeiramente, baixe este projeto em seu computador e descompacte o.
 
