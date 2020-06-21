@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "c1aa502b-72bc-4e75-8658-3180c78bf5d2",
+		"name": "Teste de API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Consulta de todas as postagens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4240a64-3cb3-42ad-80fb-787ede78c964",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				},
+				"description": "1 - Quais são o método e a URL que devem ser chamados para retornar todas as postagens cadastrados neste site e qual é o retorno dessa chamada? \r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Dados do album de fotos ID: 15",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a431e1ae-2b76-4c79-83af-73b02864bbd2",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/albums/15/photos",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"albums",
+						"15",
+						"photos"
+					]
+				},
+				"description": "2 - Quais são o método e a URL que devem ser chamados para retornar os dados do álbum de fotos com id “15” e qual é o retorno dessa chamada? \r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Inserindo uma nova postagem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e02e22e-7801-4fb0-afda-faccf80b3585",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 201 CREATED\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"title\": \"Teste de API 01\",\r\n    \"body\": \"Testando a inclusão de um novo Post\",\r\n    \"userId\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				},
+				"description": "3 - Considerando que o usuário deseja inserir uma nova postagem, usando o formato JSON para a inserção de dados: \r\n\r\na. Qual método e a URL que devem ser chamados para inserir um novo post?\r\n\r\nb. Coloque os dados no formato JSON para inserir o post."
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Alterando a postagem do ID: 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e8590ed-2202-445d-94b1-e3668d5270c4",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Charset",
+						"value": "UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 5,\r\n  \"title\": \"Teste de alteração\",\r\n  \"body\": \"Testando a alteração da postagem do ID = 5\",\r\n  \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/5",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"5"
+					]
+				},
+				"description": "4 – Considerando que o usuário quer alterar a postagem de id “5”: \r\n\r\na. Qual método e a URL que devem ser chamados para alterar os dados?\r\n\r\nb. Coloque os dados no formato JSON para fazer a modificação desta postagem."
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Deletando o usuário com ID: 10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "951b2003-e12d-4263-8321-d9d86a259c30",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users/10",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"10"
+					]
+				},
+				"description": "5 - Qual método e a URL que devem ser chamados caso o usuário deseje deletar o usuário com id “10”?\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Inserindo um post com ID existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ac82c8a-fb8b-46f7-bc56-f4c6e6b85d01",
+						"exec": [
+							"pm.test(\"Execução OK - Retorno = 201 CREATED\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Charset",
+						"type": "text",
+						"value": "UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"id\": 2,\r\n    \"title\": \"Teste de inserção repetida\",\r\n    \"body\": \"Testando a inserção de um novo registro com um ID existente\",\r\n    \"userId\": 1\r\n  }",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				},
+				"description": "6. Qual status code retornado caso o usuário tente inserir um post com um ID já existente na base de dados? Qual a mensagem retornada no body da resposta?"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
